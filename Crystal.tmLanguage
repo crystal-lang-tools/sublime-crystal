@@ -351,8 +351,16 @@
 			</array>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.type-parameters</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>\b[A-Z]\w*(?=((\.|::)[A-Za-z]|\[))</string>
+			<string>\b[A-Z]\w*(\(.*?\))?(?=((\.|::)[A-Za-z]|\[))</string>
 			<key>name</key>
 			<string>support.class.crystal</string>
 		</dict>
