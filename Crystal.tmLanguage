@@ -244,7 +244,7 @@
 			<key>comment</key>
 			<string> everything being a method but having a special function is a..</string>
 			<key>match</key>
-			<string>\b(initialize|new|loop|include|extend|raise|attr_reader|attr_writer|attr_accessor|attr|getter|setter|property(!?)catch|throw|private|module_function|public|protected|describe|it)\b(?![?!])</string>
+			<string>\b(initialize|new|loop|include|extend|raise|attr_reader|attr_writer|attr_accessor|attr|getter|setter|property|catch|throw|private|module_function|public|protected|describe|it)\b[!?]?</string>
 			<key>name</key>
 			<string>keyword.other.special-method.crystal</string>
 		</dict>
