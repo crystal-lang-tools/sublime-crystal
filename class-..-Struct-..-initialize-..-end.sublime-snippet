@@ -3,10 +3,10 @@
 	def ${3:method_name}
 		$0
 	end
-	
-	
+
+
 end]]></content>
     <tabTrigger>cla</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>ClassName = Struct .. do .. end</description>
 </snippet>

@@ -5,20 +5,20 @@ options = {${1::default => "args"}}
 
 ARGV.options do |opts|
 	opts.banner = "Usage:  #{File.basename(\$PROGRAM_NAME)} [OPTIONS]${2/^\s*$|(.*\S.*)/(?1: )/}${2:OTHER_ARGS}"
-	
+
 	opts.separator ""
 	opts.separator "Specific Options:"
-	
+
 	$0
-	
+
 	opts.separator "Common Options:"
-	
+
 	opts.on( "-h", "--help",
 	         "Show this message." ) do
 		puts opts
 		exit
 	end
-	
+
 	begin
 		opts.parse!
 	rescue
@@ -28,6 +28,6 @@ ARGV.options do |opts|
 end
 ]]></content>
     <tabTrigger>optp</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>option_parse { .. }</description>
 </snippet>

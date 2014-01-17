@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Indent</string>
 	<key>scope</key>
-	<string>source.ruby</string>
+	<string>source.crystal</string>
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>

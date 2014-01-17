@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>defmm</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>def method_missing .. end</description>
 </snippet>

@@ -3,17 +3,17 @@
 	module ClassMethods
 		$0
 	end
-	
+
 	module InstanceMethods
-		
+
 	end
-	
+
 	def self.included(receiver)
 		receiver.extend         ClassMethods
 		receiver.send :include, InstanceMethods
 	end
 end]]></content>
     <tabTrigger>mod</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>module .. ClassMethods .. end</description>
 </snippet>

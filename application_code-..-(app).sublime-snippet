@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>app</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>application { .. }</description>
 </snippet>

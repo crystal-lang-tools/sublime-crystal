@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>source.ruby meta.function.method</string>
+    <string>source.crystal meta.function.method</string>
     <key>settings</key>
     <dict>
         <key>symbolIndexTransformation</key>

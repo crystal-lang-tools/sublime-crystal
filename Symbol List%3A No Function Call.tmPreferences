@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: No Function Call</string>
 	<key>scope</key>
-	<string>source.ruby meta.function-call entity.name.function</string>
+	<string>source.crystal meta.function-call entity.name.function</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

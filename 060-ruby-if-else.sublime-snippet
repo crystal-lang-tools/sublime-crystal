@@ -5,6 +5,6 @@ else
 	$3
 end]]></content>
     <tabTrigger>ife</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>if … else … end</description>
 </snippet>

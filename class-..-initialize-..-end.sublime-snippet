@@ -3,10 +3,10 @@
 	def initialize${2/(^.*?\S.*)|.*/(?1:\()/}${2:args}${2/(^.*?\S.*)|.*/(?1:\))/}
 		$0
 	end
-	
-	
+
+
 end]]></content>
     <tabTrigger>cla</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>class .. initialize .. end</description>
 </snippet>

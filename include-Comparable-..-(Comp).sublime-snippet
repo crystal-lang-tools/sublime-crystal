@@ -5,6 +5,6 @@ def <=>(other)
 	$0
 end]]></content>
     <tabTrigger>Comp</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>include Comparable ..</description>
 </snippet>

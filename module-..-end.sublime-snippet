@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>mod</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>module .. end</description>
 </snippet>

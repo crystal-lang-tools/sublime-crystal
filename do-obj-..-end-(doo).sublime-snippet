@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>dob</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>Insert do |variable| … end</description>
 </snippet>

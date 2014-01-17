@@ -5,6 +5,6 @@ def each(&block)
 	$0
 end]]></content>
     <tabTrigger>Enum</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>include Enumerable ..</description>
 </snippet>

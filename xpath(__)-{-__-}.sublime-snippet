@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>xpa</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>xpath(..) { .. }</description>
 </snippet>

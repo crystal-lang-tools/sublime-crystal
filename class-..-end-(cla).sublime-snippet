@@ -3,6 +3,6 @@
 	$0
 end]]></content>
     <tabTrigger>cla</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>class .. end</description>
 </snippet>

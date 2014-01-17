@@ -5,6 +5,6 @@ require "tc_${1:test_case_file}"
 require "tc_${2:test_case_file}"
 ]]></content>
     <tabTrigger>ts</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>require "tc_.." ..</description>
 </snippet>

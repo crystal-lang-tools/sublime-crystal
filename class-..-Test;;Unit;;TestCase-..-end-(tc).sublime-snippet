@@ -9,6 +9,6 @@ class Test${2:${1/([\w&&[^_]]+)|./\u$1/g}} < Test::Unit::TestCase
 	end
 end]]></content>
     <tabTrigger>tc</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>class .. &lt; Test::Unit::TestCase .. end</description>
 </snippet>

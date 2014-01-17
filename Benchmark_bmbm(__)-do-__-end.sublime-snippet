@@ -4,6 +4,6 @@ Benchmark.bmbm do |results|
   $0
 end]]></content>
     <tabTrigger>bm-</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>Benchmark.bmbm do .. end</description>
 </snippet>

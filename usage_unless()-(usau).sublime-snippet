@@ -3,6 +3,6 @@
 	abort "Usage:  #{\$PROGRAM_NAME} ${2:ARGS_GO_HERE}"
 end]]></content>
     <tabTrigger>usau</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>usage_unless()</description>
 </snippet>

@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[File.dirname(__FILE__)]]></content>
     <tabTrigger>dir</tabTrigger>
-    <scope>source.ruby</scope>
+    <scope>source.crystal</scope>
     <description>directory()</description>
 </snippet>

@@ -6,6 +6,6 @@ ${TM_SELECTED_TEXT/([\t ]*).*/$1/m}	$0
 ${TM_SELECTED_TEXT/([\t ]*).*/$1/m}end
 ]]></content>
     <tabTrigger>begin</tabTrigger>
-    <scope>source.ruby - comment</scope>
+    <scope>source.crystal - comment</scope>
     <description>begin … rescue … end</description>
 </snippet>

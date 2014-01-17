@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>source.ruby entity.other.inherited-class.ruby</string>
+    <string>source.crystal entity.other.inherited-class.crystal</string>
     <key>settings</key>
     <dict>
         <key>showInIndexedSymbolList</key>
