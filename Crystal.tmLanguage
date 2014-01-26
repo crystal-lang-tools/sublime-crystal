@@ -103,31 +103,36 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.type.class.crystal</string>
+					<string>keyword.control.class.crystal</string>
 				</dict>
-				<key>4</key>
+				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.inherited-class.crystal</string>
+					<string>entity.name.type.class.crystal</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.inheritance.crystal</string>
+					<string>entity.other.inherited-class.crystal</string>
 				</dict>
 				<key>6</key>
 				<dict>
 					<key>name</key>
-					<string>variable.other.object.crystal</string>
+					<string>punctuation.separator.inheritance.crystal</string>
 				</dict>
 				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.object.crystal</string>
+				</dict>
+				<key>8</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.definition.variable.crystal</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(class)\s+(([.a-zA-Z0-9_:]+(\s*(&lt;)\s*[.a-zA-Z0-9_:]+)?)|((&lt;&lt;)\s*[.a-zA-Z0-9_:]+))</string>
+			<string>^\s*(abstract)?\s*(class)\s+(([.a-zA-Z0-9_:]+(\s*(&lt;)\s*[.a-zA-Z0-9_:]+)?)|((&lt;&lt;)\s*[.a-zA-Z0-9_:]+))</string>
 			<key>name</key>
 			<string>meta.class.crystal</string>
 		</dict>
