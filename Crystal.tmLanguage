@@ -2189,6 +2189,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>(\{\%|\%\}|\{\{|\}\})</string>
+			<key>name</key>
+			<string>keyword.operator.macro.crystal</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(%|&amp;|\*\*|\*|\+|\-|/)</string>
 			<key>name</key>
 			<string>keyword.operator.arithmetic.crystal</string>
