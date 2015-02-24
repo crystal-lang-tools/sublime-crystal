@@ -201,6 +201,55 @@
 			<string>meta.module.crystal</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.lib.crystal</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.lib.crystal</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.other.inherited-class.lib.first.crystal</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.inheritance.crystal</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>entity.other.inherited-class.lib.second.crystal</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.inheritance.crystal</string>
+				</dict>
+				<key>7</key>
+				<dict>
+					<key>name</key>
+					<string>entity.other.inherited-class.lib.third.crystal</string>
+				</dict>
+				<key>8</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.separator.inheritance.crystal</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(lib)\s+(([A-Z]\w*(::))?([A-Z]\w*(::))?([A-Z]\w*(::))*[A-Z]\w*)</string>
+			<key>name</key>
+			<string>meta.lib.crystal</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>else if is a common mistake carried over from other languages. it works if you put in a second end, but it’s never what you want.</string>
 			<key>match</key>
