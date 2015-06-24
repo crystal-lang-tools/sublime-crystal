@@ -147,7 +147,29 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(abstract)?\s*(class)\s+(([.a-zA-Z0-9_:]+(\(([.a-zA-Z0-9_:]+)\))?(\s*(&lt;)\s*[.a-zA-Z0-9_:]+(\(([.a-zA-Z0-9_:]+)\))?)?)|((&lt;&lt;)\s*[.a-zA-Z0-9_:]+))</string>
+			<string>(?x)
+				^
+				\s*
+				(abstract)?
+				\s*
+				(class)
+				\s+
+				(
+					(
+						[.A-Z_:\x{80}-\x{10FFFF}][.\w:\x{80}-\x{10FFFF}]*
+						(\(([,\s.a-zA-Z0-9_:\x{80}-\x{10FFFF}]+)\))?
+						(
+							\s*(&lt;)\s*
+							[.:A-Z\x{80}-\x{10FFFF}][.:\w\x{80}-\x{10FFFF}]*
+							(\(([.a-zA-Z0-9_:]+\s,)\))?
+						)?
+					)|(
+						(&lt;&lt;)
+						\s*
+						[.A-Z0-9_:\x{80}-\x{10FFFF}]+
+					)
+				)
+			</string>
 			<key>name</key>
 			<string>meta.class.crystal</string>
 		</dict>
@@ -196,7 +218,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^\s*(module)\s+(([A-Z]\w*(::))?([A-Z]\w*(::))?([A-Z]\w*(::))*[A-Z]\w*)</string>
+			<string>^\s*(module)\s+(([A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(::))?([A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(::))?([A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(::))*[A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*)</string>
 			<key>name</key>
 			<string>meta.module.crystal</string>
 		</dict>
@@ -261,9 +283,25 @@
 			<key>comment</key>
 			<string>everything being a reserved word, not a value and needing a 'end' is a..</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(BEGIN|alias|as|begin|case|abstract|class|else|elsif|END|end|ensure|for|fun|if|ifdef|in|lib|module|of|out|rescue|struct|with|union|enum|macro|then|type|unless|until|when|while)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(BEGIN|alias|as|begin|case|abstract|class|END|ensure|for|fun|if|ifdef|in|lib|module|of|out|rescue|struct|with|union|enum|macro|then|type|unless|until|while)\b(?![?!])</string>
 			<key>name</key>
-			<string>keyword.control.crystal</string>
+			<string>keyword.control.primary.crystal</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>everything being a reserved word, not a value and needing a 'end' is a..</string>
+			<key>match</key>
+			<string>(?&lt;!\.)\b(when|else|elsif)\b(?![?!])</string>
+			<key>name</key>
+			<string>keyword.control.secondary.crystal</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Give the end keyword an additional scope</string>
+			<key>match</key>
+			<string>(?&lt;!\.)\b(end)\b(?![?!])</string>
+			<key>name</key>
+			<string>keyword.control.secondary.end.crystal</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -350,7 +388,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@)[a-zA-Z_]\w*</string>
+			<string>(@)[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*[?!=]?</string>
 			<key>name</key>
 			<string>variable.other.readwrite.instance.crystal</string>
 		</dict>
@@ -364,7 +402,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@@)[a-zA-Z_]\w*</string>
+			<string>(@@)[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*[?!=]?</string>
 			<key>name</key>
 			<string>variable.other.readwrite.class.crystal</string>
 		</dict>
@@ -421,13 +459,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b[A-Z]\w*</string>
+			<string>\b[A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*</string>
 			<key>name</key>
 			<string>support.class.crystal</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b[A-Z]\w*\b</string>
+			<string>\b[A-Z\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*\b</string>
 			<key>name</key>
 			<string>variable.other.constant.crystal</string>
 		</dict>
@@ -436,8 +474,8 @@
 			<string>(?x)
 			         (?=def\b)                                                      # an optimization to help Oniguruma fail fast
 			         (?&lt;=^|\s)(def)\s+                                              # the def keyword
-			         ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                   # a method name prefix
-			           (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                              # the method name
+			         ( (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\x{80}-\x{10FFFF}\w]*(?&gt;\.|::))?                                   # a method name prefix
+			           (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\x{80}-\x{10FFFF}\w]*(?&gt;[?!]|=(?!&gt;))?                              # the method name
 			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) )  # …or an operator method
 			         \s*(\()                                                        # the openning parenthesis for arguments
 			        </string>
@@ -488,8 +526,8 @@
 			<string>(?x)
 			         (?=def\b)                                                      # an optimization to help Oniguruma fail fast
 			         (?&lt;=^|\s)(def)\s+                                              # the def keyword
-			         ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                   # a method name prefix
-			           (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                              # the method name
+			         ( (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;\.|::))?                                   # a method name prefix
+			           (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!]|=(?!&gt;))?                              # the method name
 			           |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) )  # …or an operator method
 			         [ \t]                                                          # the space separating the arguments
 			         (?=[ \t]*[^\s#;])                                              # make sure arguments and not a comment follow
@@ -544,8 +582,8 @@
 			         (?=def\b)                                                           # an optimization to help Oniguruma fail fast
 			         (?&lt;=^|\s)(def)\b                                                    # the def keyword
 			         ( \s+                                                               # an optional group of whitespace followed by…
-			           ( (?&gt;[a-zA-Z_]\w*(?&gt;\.|::))?                                      # a method name prefix
-			             (?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?!&gt;))?                                 # the method name
+			           ( (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;\.|::))?                                      # a method name prefix
+			             (?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!]|=(?!&gt;))?                                 # the method name
 			             |===?|&gt;[&gt;=]?|&lt;=&gt;|&lt;[&lt;=]?|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?) ) )?  # …or an operator method
 			        </string>
 			<key>name</key>
@@ -1576,7 +1614,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_]\w*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?|@@?[a-zA-Z_]\w*)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\]=?|@@?[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*)</string>
 			<key>name</key>
 			<string>constant.other.symbol.crystal</string>
 		</dict>
@@ -1592,7 +1630,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&gt;[a-zA-Z_]\w*(?&gt;[?!])?)(:)(?!:)</string>
+			<string>(?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!])?)(:)(?!:)</string>
 			<key>name</key>
 			<string>constant.other.symbol.crystal.19syntax</string>
 		</dict>
