@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Crystal: format",
+    "command": "crystal_format"
+  }
+]
