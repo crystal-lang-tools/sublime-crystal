@@ -3,8 +3,7 @@ import sublime
 import subprocess
 import tempfile
 import os
-
-SETTINGS = sublime.load_settings('Crystal.sublime-settings')
+import difflib
 
 class CrystalPluginListener(sublime_plugin.EventListener):
   def on_pre_save(self, view):
@@ -24,9 +23,20 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
     with tempfile.NamedTemporaryFile(mode = 'w+t', delete = False) as tmp:
       tmp.write(src)
 
-    subprocess.call([SETTINGS.get("crystal_cmd"), "tool", "format", tmp.name])
+    settings = sublime.load_settings('Crystal.sublime-settings')
+    subprocess.call([settings.get("crystal_cmd"), "tool", "format", tmp.name])
 
     with open(tmp.name, 'r') as formatted_file:
-      self.view.replace(edit, region, formatted_file.read())
-
+      formatted = formatted_file.read()
     os.unlink(tmp.name)
+
+    print(difflib.SequenceMatcher(None, src, formatted).get_opcodes())
+    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, src, formatted).get_opcodes():
+      if op == 'insert':
+        self.view.insert(edit, j1, formatted[j1:j2])
+        next
+      if op == 'delete':
+        self.view.erase(edit, sublime.Region(j1, j1 + (i2 - i1)))
+        next
+      if op == 'replace':
+        self.view.replace(edit, sublime.Region(j1, j1 + (i2 - i1)), formatted[j1:j2])
