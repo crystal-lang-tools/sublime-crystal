@@ -30,7 +30,6 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       formatted = formatted_file.read()
     os.unlink(tmp.name)
 
-    print(difflib.SequenceMatcher(None, src, formatted).get_opcodes())
     for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, src, formatted).get_opcodes():
       if op == 'insert':
         self.view.insert(edit, j1, formatted[j1:j2])
