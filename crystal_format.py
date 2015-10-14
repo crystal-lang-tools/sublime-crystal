@@ -1,16 +1,14 @@
 import sublime_plugin
 import sublime
 import subprocess
-import tempfile
-import os
-import difflib
+from .diff_match_patch import diff_match_patch
 import json
 
 class CrystalPluginListener(sublime_plugin.EventListener):
   def on_pre_save(self, view):
     settings = sublime.load_settings('Crystal.sublime-settings')
     if settings.get('auto_format'):
-    view.run_command('crystal_format')
+      view.run_command('crystal_format')
 
 class CrystalFormatCommand(sublime_plugin.TextCommand):
   def is_enabled(self):
@@ -31,16 +29,17 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       output = proc.stdout.read().decode('UTF-8')
       exit = proc.wait()
 
+    pos = 0
     if exit == 0:
-      for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, src, output).get_opcodes():
-        if op == 'insert':
-          self.view.insert(edit, j1, output[j1:j2])
-          next
-        if op == 'delete':
-          self.view.erase(edit, sublime.Region(j1, j1 + (i2 - i1)))
-          next
-        if op == 'replace':
-          self.view.replace(edit, sublime.Region(j1, j1 + (i2 - i1)), output[j1:j2])
+      for op, text in diff_match_patch().diff_main(src, output):
+        if op == diff_match_patch.DIFF_DELETE:
+          self.view.erase(edit, sublime.Region(pos, pos + len(text)))
+        if op == diff_match_patch.DIFF_INSERT:
+          self.view.insert(edit, pos, text)
+          pos += len(text)
+        if op == diff_match_patch.DIFF_EQUAL:
+          pos += len(text)
+
       self.view.erase_regions('crystal_errors')
       window.run_command("hide_panel")
 
