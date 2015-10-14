@@ -8,6 +8,8 @@ import json
 
 class CrystalPluginListener(sublime_plugin.EventListener):
   def on_pre_save(self, view):
+    settings = sublime.load_settings('Crystal.sublime-settings')
+    if settings.get('auto_format'):
     view.run_command('crystal_format')
 
 class CrystalFormatCommand(sublime_plugin.TextCommand):
