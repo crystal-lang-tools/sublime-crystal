@@ -51,7 +51,7 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot')
 
       error_panel = window.create_output_panel('crystal_errors')
-      error_panel.run_command("update", {"buffer":
+      error_panel.run_command("append", {"characters":
         "Error at line %d, column %d: %s" % (error[0]["line"], error[0]["column"], error[0]['message'])
       })
       window.run_command("show_panel", {"panel": "output.crystal_errors"})
