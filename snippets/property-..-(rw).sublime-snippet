@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[property ${0:attr_names}]]></content>
+    <tabTrigger>rw</tabTrigger>
+    <scope>source.crystal</scope>
+    <description>property ..</description>
+</snippet>

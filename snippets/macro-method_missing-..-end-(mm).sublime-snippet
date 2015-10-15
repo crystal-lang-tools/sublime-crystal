@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[macro method_missing(name, args, block)
+	$0
+end]]></content>
+    <tabTrigger>mmm</tabTrigger>
+    <scope>source.crystal</scope>
+    <description>macro method_missing .. end</description>
+</snippet>

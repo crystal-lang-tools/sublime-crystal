@@ -13,7 +13,7 @@
 		<key>increaseIndentPattern</key>
 		<string>(?x)^
     (\s*
-        (module|class|def
+        (module|class|struct|lib|def|macro
         |unless|if|else|elsif
         |case|when
         |begin|rescue|ensure
