@@ -16,6 +16,10 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
     syntax_name = self.view.scope_name(caret)
     return "source.crystal" in syntax_name
 
+  def has_redo(self):
+    cmd, args, repeat = self.view.command_history(1)
+    return cmd != ''
+
   def run(self, edit):
     vsize = self.view.size()
     region = sublime.Region(0, vsize)
@@ -31,14 +35,15 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
 
     pos = 0
     if exit == 0:
-      for op, text in diff_match_patch().diff_main(src, output):
-        if op == diff_match_patch.DIFF_DELETE:
-          self.view.erase(edit, sublime.Region(pos, pos + len(text)))
-        if op == diff_match_patch.DIFF_INSERT:
-          self.view.insert(edit, pos, text)
-          pos += len(text)
-        if op == diff_match_patch.DIFF_EQUAL:
-          pos += len(text)
+      if not self.has_redo():
+        for op, text in diff_match_patch().diff_main(src, output):
+          if op == diff_match_patch.DIFF_DELETE:
+            self.view.erase(edit, sublime.Region(pos, pos + len(text)))
+          if op == diff_match_patch.DIFF_INSERT:
+            self.view.insert(edit, pos, text)
+            pos += len(text)
+          if op == diff_match_patch.DIFF_EQUAL:
+            pos += len(text)
 
       self.view.erase_regions('crystal_errors')
       window.run_command("hide_panel")
