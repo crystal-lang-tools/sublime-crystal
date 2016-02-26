@@ -52,7 +52,7 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       error = json.loads(output)
       error_pos = self.view.text_point(error[0]["line"] - 1, error[0]["column"] - 1)
       line_region = self.view.full_line(error_pos)
-      self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot')
+      self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot', sublime.HIDDEN)
 
       error_panel = window.create_output_panel('crystal_errors')
       error_panel.run_command("append", {"characters":
