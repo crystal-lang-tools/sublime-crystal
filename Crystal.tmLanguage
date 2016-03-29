@@ -152,7 +152,7 @@
 				\s*
 				(abstract)?
 				\s*
-				(class)
+				(class|struct|union)
 				\s+
 				(
 					(
