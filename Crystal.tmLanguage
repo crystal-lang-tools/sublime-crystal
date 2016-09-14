@@ -331,7 +331,7 @@
 			<key>comment</key>
 			<string> just as above but being not a logical operation</string>
 			<key>match</key>
-			<string>(?&lt;!\.)\b(alias|alias_method|break|next|pointerof|typeof|sizeof|instance_sizeof|return|super|yield|uninitialized)\b(?![?!])</string>
+			<string>(?&lt;!\.)\b(alias|alias_method|break|next|pointerof|typeof|sizeof|instance_sizeof|return|super|yield|uninitialized|forall)\b(?![?!])</string>
 			<key>name</key>
 			<string>keyword.control.pseudo-method.crystal</string>
 		</dict>
