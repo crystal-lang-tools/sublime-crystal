@@ -343,7 +343,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(FILE|LINE)__|self)\b(?![?!])</string>
+			<string>\b(__(DIR|FILE|LINE)__|self)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.crystal</string>
 		</dict>
