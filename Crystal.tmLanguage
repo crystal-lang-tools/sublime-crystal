@@ -351,7 +351,7 @@
 			<key>comment</key>
 			<string> everything being a method but having a special function is a..</string>
 			<key>match</key>
-			<string>\b(initialize|new|loop|include|extend|raise|getter|setter|property|describe|it|with|delegate|def_hash|def_equals|def_equals_and_hash|forward_missing_to|record|assert_responds_to|spawn)\b[!?]?</string>
+			<string>\b(initialize|new|loop|include|extend|raise|getter|setter|property|class_getter|class_setter|class_property|describe|it|with|delegate|def_hash|def_equals|def_equals_and_hash|forward_missing_to|record|assert_responds_to|spawn)\b[!?]?</string>
 			<key>name</key>
 			<string>keyword.control.special-method.crystal</string>
 		</dict>
