@@ -591,7 +591,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(0[xX]\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0[bB][01]+)(_?(u8|u16|u32|u64|i8|i16|i32|i64|f32|f64))?\b</string>
+			<string>\b(0[xX]\h(?&gt;_?\h)*|\d(?&gt;_?\d)*(\.(?![^[:space:][:digit:]])(?&gt;_?\d)*)?([eE][-+]?\d(?&gt;_?\d)*)?|0[bB][01]+|0o[0-7]+)(_?(u8|u16|u32|u64|i8|i16|i32|i64|f32|f64))?\b</string>
 			<key>name</key>
 			<string>constant.numeric.crystal</string>
 		</dict>
