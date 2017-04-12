@@ -1,5 +1,9 @@
 {
-	"shell_cmd": "crystal \"$file\"",
+	"cmd": ["crystal", "\"$file\""],
+	"shell": true,
 	"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
-	"selector": "source.crystal"
+	"selector": "source.crystal",
+	"windows": {
+		"cmd": ["bash", "-c", "crystal \"$file_name\""]
+	}
 }
