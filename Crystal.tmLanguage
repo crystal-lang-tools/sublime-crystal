@@ -58,7 +58,6 @@
 	        |case
 	        |begin
 	        |for|while|until
-	         |^=begin
 	        |(  "(\\.|[^"])*+"          # eat a double quoted string
 	         | '(\\.|[^'])*+'        # eat a single quoted string
 	         |   [^#"']                # eat all but comments and strings
@@ -1633,24 +1632,6 @@
 			<string>(?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!])?)(:)(?!:)</string>
 			<key>name</key>
 			<string>constant.other.symbol.crystal.19syntax</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>^=begin</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.crystal</string>
-				</dict>
-			</dict>
-			<key>comment</key>
-			<string>multiline comments</string>
-			<key>end</key>
-			<string>^=end</string>
-			<key>name</key>
-			<string>comment.block.documentation.crystal</string>
 		</dict>
 		<dict>
 			<key>captures</key>
