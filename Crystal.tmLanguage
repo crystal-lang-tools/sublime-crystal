@@ -501,7 +501,7 @@
 			<key>contentName</key>
 			<string>variable.parameter.function.crystal</string>
 			<key>end</key>
-			<string>\)</string>
+			<string>\)\s*$|\)\s*:</string>
 			<key>endCaptures</key>
 			<dict>
 				<key>0</key>
