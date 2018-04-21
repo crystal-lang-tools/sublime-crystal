@@ -37,9 +37,10 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       popen_args['startupinfo'] = subprocess.STARTUPINFO()
       popen_args['startupinfo'].dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
-    with subprocess.Popen(**popen_args) as proc:
-      output, _ = proc.communicate(src.encode('utf-8'))
-      output = output.decode('utf-8')
+    proc = subprocess.Popen(**popen_args)
+    output, _ = proc.communicate(src.encode('utf-8'))
+    output = output.decode('utf-8')
+    exit = proc.returncode
 
     pos = 0
     if exit == 0:
