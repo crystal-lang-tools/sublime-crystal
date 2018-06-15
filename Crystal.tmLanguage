@@ -1979,7 +1979,7 @@
 			<key>comment</key>
 			<string>heredoc with embedded javascript and intented terminator</string>
 			<key>contentName</key>
-			<string>text.js.jquery.embedded.crystal</string>
+			<string>text.js.embedded.crystal</string>
 			<key>end</key>
 			<string>\s*\2$</string>
 			<key>endCaptures</key>
@@ -1991,7 +1991,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>string.unquoted.embedded.js.jquery.crystal</string>
+			<string>string.unquoted.embedded.js.crystal</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -2000,7 +2000,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>source.js.jquery</string>
+					<string>source.js</string>
 				</dict>
 				<dict>
 					<key>include</key>
