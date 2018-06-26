@@ -31,21 +31,22 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
     settings = sublime.load_settings('Crystal.sublime-settings')
     command = [settings.get("crystal_cmd"), "tool", "format", "-", "--format", "json"]
 
-    popen_args = dict(args=command, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    popen_args = dict(args=command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     # Prevent flashing terminal windows
     if sys.platform.startswith('win'):
       popen_args['startupinfo'] = subprocess.STARTUPINFO()
       popen_args['startupinfo'].dwFlags |= subprocess.STARTF_USESHOWWINDOW
 
     proc = subprocess.Popen(**popen_args)
-    output, _ = proc.communicate(src.encode('utf-8'))
-    output = output.decode('utf-8')
+    stdout, stderr = proc.communicate(src.encode('utf-8'))
+    stdout = stdout.decode('utf-8')
+    stderr = stderr.decode('utf-8')
     exit = proc.returncode
 
     pos = 0
     if exit == 0:
       if not self.has_redo():
-        for op, text in diff_match_patch().diff_main(src, output):
+        for op, text in diff_match_patch().diff_main(src, stdout):
           if op == diff_match_patch.DIFF_DELETE:
             self.view.erase(edit, sublime.Region(pos, pos + len(text)))
           if op == diff_match_patch.DIFF_INSERT:
@@ -58,7 +59,7 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       window.run_command("hide_panel")
 
     else:
-      error = json.loads(output)
+      error = json.loads(stderr)
       error_pos = self.view.text_point(error[0]["line"] - 1, error[0]["column"] - 1)
       line_region = self.view.full_line(error_pos)
       self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot', sublime.HIDDEN)
