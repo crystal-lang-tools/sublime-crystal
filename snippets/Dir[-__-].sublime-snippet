@@ -1,5 +1,5 @@
 <snippet>
-    <content><![CDATA[Dir[${1:"${2:glob/**/*.rb}"}]]]></content>
+    <content><![CDATA[Dir[${1:"${2:glob/**/*.cr}"}]]]></content>
     <tabTrigger>Dir</tabTrigger>
     <scope>source.crystal</scope>
     <description>Dir[".."]</description>
