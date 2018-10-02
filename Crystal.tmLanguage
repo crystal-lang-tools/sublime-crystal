@@ -342,7 +342,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(__(DIR|FILE|LINE)__|self)\b(?![?!])</string>
+			<string>\b(__(DIR|FILE|LINE|END_LINE)__|self)\b(?![?!])</string>
 			<key>name</key>
 			<string>variable.language.crystal</string>
 		</dict>
@@ -1613,7 +1613,7 @@
 			<key>comment</key>
 			<string>symbols</string>
 			<key>match</key>
-			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\](?:=|\?)?|@@?[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*)</string>
+			<string>(?&lt;!:)(:)(?&gt;[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*(?&gt;[?!]|=(?![&gt;=]))?|===?|&gt;[&gt;=]?|&lt;[&lt;=]?|&lt;=&gt;|[%&amp;`/\|]|\*\*?|=?~|[-+]@?|\[\](?:=|\?)?|@@?[a-zA-Z_\x{80}-\x{10FFFF}][\w\x{80}-\x{10FFFF}]*|!=?(?![?!]))</string>
 			<key>name</key>
 			<string>constant.other.symbol.crystal</string>
 		</dict>
