@@ -10,7 +10,6 @@ Sublime Package Control allows you to easily install or remove `Crystal` (and ma
 
 2. Bring up the command palette (default `ctrl+shift+p` or `cmd+shift+p`) and start typing `Package Control: Install Package` then press return or click on that option to activate it. You will be presented with a new Quick Panel with the list of available packages. Type `Crystal` and press return or on its entry to install Crystal. If there is no entry for Crystal, you most likely already have it installed.
 
-## Features
+## Development
 
-## Todo
-Add snippets for default classes like Exception
+Note to contributors: to release a new Package version, a new git tag should be added to the repository.
