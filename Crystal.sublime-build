@@ -1,6 +1,6 @@
 {
 	"cmd": ["crystal", "run", "--no-color", "$file"],
-	"file_regex": "^(...*?):([0-9]*):?([0-9]*)",
+	"file_regex": "^Error in (?<filename>.+\\.cr):(?<line_number>[0-9]*):?(?<column_number>[0-9]*): (?<message>.+)$",
 	"selector": "source.crystal",
 	"windows": {
 		"cmd": ["bash", "-c", "crystal \"$file_name\""]
