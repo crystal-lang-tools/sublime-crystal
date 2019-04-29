@@ -2,6 +2,7 @@ import json
 import subprocess
 import sys
 import re
+import os
 
 import sublime_plugin
 import sublime
@@ -32,6 +33,9 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
     settings = sublime.load_settings('Crystal.sublime-settings')
     #command = [settings.get("crystal_cmd"), "tool", "format", "-", "--format", "json"]
     command = [settings.get("crystal_cmd"), "tool", "format", "-", "--no-color"]
+
+    # for Windows Subsystem for Linux
+    if os.name == "nt": command.insert(0, "wsl")
 
     popen_args = dict(args=command, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     # Prevent flashing terminal windows

@@ -2,8 +2,7 @@
 	"cmd": ["crystal", "run", "--no-color", "$file"],
 	"file_regex": "^Error in (?<filename>.+\\.cr):(?<line_number>[0-9]*):?(?<column_number>[0-9]*): (?<message>.+)$",
 	"selector": "source.crystal",
-	"quiet": true,
 	"windows": {
-		"cmd": ["bash", "-c", "crystal", "run", "--no-color", "$file"]
+		"cmd": ["wsl", "crystal", "run", "--no-color", "$file_name"]
 	}
 }
