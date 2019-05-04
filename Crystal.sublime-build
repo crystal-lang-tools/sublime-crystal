@@ -4,6 +4,6 @@
 	"selector": "source.crystal",
 	"quiet": true,
 	"windows": {
-		"cmd": ["bash", "-c", "crystal", "run", "--no-color", "$file"]
+		"cmd": ["wsl", "crystal", "run", "--no-color", "$file_name"]
 	}
 }
