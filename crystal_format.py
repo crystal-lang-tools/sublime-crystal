@@ -65,30 +65,29 @@ class CrystalFormatCommand(sublime_plugin.TextCommand):
       window.run_command("hide_panel")
 
     else:
-      error_pos = None
-      pattern = r"Error: Syntax error in .+?:(\d+): (.+)"
+      error_line = None
+      error_column = None
+      pattern = r"syntax error in '.+?:(\d+):(\d+)': (.+)"
       match = re.match(pattern, stderr)
       if match:
-        error_pos = int(match.group(1))
-        error = match.group(2)
+        error_line = int(match.group(1))
+        error_column = int(match.group(2))
+        error = match.group(3)
       else:
-        error_pos = None
+        error_line = None
+        error_column = None
         error = stderr
-      # error = json.loads(stderr)
-      # error_pos = self.view.text_point(error[0]["line"] - 1, error[0]["column"] - 1)
 
-      if error_pos:
+      if error_line and error_column:
+        error_pos = self.view.text_point(error_line - 1, error_column - 1)
         line_region = self.view.full_line(error_pos)
-        self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot', sublime.HIDDEN)
+        self.view.add_regions('crystal_errors', [line_region], 'comment', 'dot', sublime.DRAW_NO_FILL)
 
       error_panel = window.create_output_panel('crystal_errors')
-      # error_panel.run_command("append", {"characters":
-      #   "Error at line %d, column %d: %s" % (error[0]["line"], error[0]["column"], error[0]['message'])
-      # })
 
-      if error_pos:
+      if error_line and error_column:
         error_panel.run_command("append", {"characters":
-          "Error at line %d: %s" % (error_pos, error)
+          "Error at line %d, column %d: %s" % (error_line, error_column, error)
         })
       else:
         error_panel.run_command("append", {"characters": error})
