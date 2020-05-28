@@ -1953,6 +1953,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>text.html.basic</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>source.js</string>
 				</dict>
 				<dict>
