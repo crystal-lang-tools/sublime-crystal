@@ -13,3 +13,10 @@ Sublime Package Control allows you to easily install or remove `Crystal` (and ma
 ## Development
 
 Note to contributors: to release a new Package version, a new git tag should be added to the repository.
+
+## Contributors
+
+- [@waj](https://github.com/waj) Juan Wajnerman - creator
+- [@hovsater](https://github.com/hovsater) Kevin Hovsäter - maintainer
+
+[See all contributors](https://github.com/crystal-lang-tools/sublime-crystal/graphs/contributors)
