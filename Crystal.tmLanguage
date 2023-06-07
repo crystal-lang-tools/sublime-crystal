@@ -717,6 +717,12 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>match</key>
+					<string>%([ +-0#]+)?([0-9]+)?(\.[0-9]+)?[bdioxXeEfgGaAcs%]</string>
+					<key>name</key>
+					<string>constant.other.placeholder.crystal</string>
+				</dict>
+				<dict>
 					<key>include</key>
 					<string>#interpolated_crystal</string>
 				</dict>
